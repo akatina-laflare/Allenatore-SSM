@@ -6,8 +6,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="SSM">
-<meta name="theme-color" content="#eef3f1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#dfeee8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1a17" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Allenatore SSM">
 <meta property="og:description" content="Prove ufficiali SSM 2024–2026, simulazioni da 140 quesiti e ripasso degli errori.">
 <meta property="og:image" content="https://akatina-laflare.github.io/Allenatore-SSM/icon-512.png">
@@ -52,22 +52,20 @@
   --ok:#5fdc8f; --ok-soft:rgba(95,220,143,.16); --ko:#ff7a6e; --ko-soft:rgba(255,122,110,.15); --warn:#f2bd52; --warn-soft:rgba(242,189,82,.16);
   --blob1:rgba(40,160,130,.28); --blob2:rgba(90,100,220,.24); --blob3:rgba(200,120,60,.14); color-scheme:dark}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%}
-html{background:var(--bg3)}
-body{margin:0;overflow:hidden;background:var(--bg);color:var(--ink);font:16px/1.45 var(--f-ui);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
-.shell{position:fixed;inset:0;overflow:hidden;background:
-  radial-gradient(60% 45% at 10% 0%,var(--blob1),transparent 70%),
-  radial-gradient(55% 40% at 100% 25%,var(--blob2),transparent 70%),
-  radial-gradient(60% 45% at 30% 100%,var(--blob3),transparent 70%),
-  linear-gradient(180deg,var(--bg2),var(--bg) 40%,var(--bg3))}
-#scroller{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+html{min-height:100%;background:var(--bg2)}
+body{margin:0;min-height:100%;background:transparent;color:var(--ink);font:16px/1.45 var(--f-ui);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+.bgfx{position:fixed;left:0;right:0;top:-40vh;bottom:-40vh;z-index:-1;pointer-events:none;background:
+  radial-gradient(60% 30% at 10% 30%,var(--blob1),transparent 70%),
+  radial-gradient(55% 25% at 100% 42%,var(--blob2),transparent 70%),
+  radial-gradient(60% 30% at 30% 70%,var(--blob3),transparent 70%),
+  linear-gradient(180deg,var(--bg2) 0%,var(--bg2) 28%,var(--bg) 48%,var(--bg3) 72%,var(--bg3) 100%)}
 .glass{background:var(--glass);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid var(--glass-edge);box-shadow:var(--hi),var(--glass-shadow)}
 .wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:4px calc(120px + env(safe-area-inset-bottom,0px))}
 header.top{max-width:760px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top,0px)) 20px 6px}
 .brand{display:flex;flex-direction:column;gap:2px}
 .brand h1{font-size:34px;line-height:1.1;margin:0;font-weight:700;letter-spacing:-.025em}
 .brand .sync{font-size:13px;color:var(--mute)}
-nav#nav{position:absolute;left:0;right:0;margin:0 auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:10;display:flex;gap:2px;padding:6px;border-radius:999px;width:min(440px,calc(100% - 32px))}
+nav#nav{position:fixed;left:0;right:0;margin:0 auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:10;display:flex;gap:2px;padding:6px;border-radius:999px;width:min(440px,calc(100% - 32px))}
 nav#nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:52px;justify-content:center;border:0;background:transparent;color:var(--mute);font:600 10.5px var(--f-ui);border-radius:999px;cursor:pointer;padding:4px 2px}
 nav#nav button svg{width:24px;height:24px}
 nav#nav button[aria-current="page"]{color:var(--acc);background:var(--acc-soft);box-shadow:var(--hi)}
@@ -168,7 +166,7 @@ table.t td.n,table.t th.n{text-align:right;font-variant-numeric:tabular-nums}
 .rvq .cq{font-family:var(--f-case);font-size:16.5px}
 .notice{padding:12px 14px;border-radius:var(--r-s);background:var(--acc-soft);color:var(--ink);font-size:14px}
 .chart{border-radius:var(--r-m);padding:10px 8px 4px}
-.toast{position:absolute;left:0;right:0;margin:0 auto;width:max-content;max-width:calc(100% - 32px);bottom:calc(88px + env(safe-area-inset-bottom,0px));padding:12px 18px;border-radius:999px;font-size:14.5px;font-weight:500;z-index:20;text-align:center;color:var(--ink);background:var(--glass-strong);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid var(--glass-edge);box-shadow:var(--hi),var(--glass-shadow)}
+.toast{position:fixed;left:0;right:0;margin:0 auto;width:max-content;max-width:calc(100% - 32px);bottom:calc(88px + env(safe-area-inset-bottom,0px));padding:12px 18px;border-radius:999px;font-size:14.5px;font-weight:500;z-index:20;text-align:center;color:var(--ink);background:var(--glass-strong);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid var(--glass-edge);box-shadow:var(--hi),var(--glass-shadow)}
 @media (prefers-reduced-transparency:reduce){
   .glass,.btn,.mode,.opt,.toast,nav#nav,.grid-dots button{-webkit-backdrop-filter:none;backdrop-filter:none;background-color:var(--glass-strong)}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass,.btn,.mode,.opt,.toast,nav#nav{background-color:var(--glass-strong)}}
@@ -176,13 +174,11 @@ table.t td.n,table.t th.n{text-align:right;font-variant-numeric:tabular-nums}
 @media(prefers-reduced-motion:no-preference){.prog i,.meter i{transition:width .3s}}
 </style>
 
-<div class="shell">
-<div id="scroller">
+<div class="bgfx" aria-hidden="true"></div>
 <header class="top">
   <div class="brand"><h1>Allenatore SSM</h1><span class="sync" id="sync">Progressi salvati solo su questo dispositivo</span></div>
 </header>
 <main class="wrap" id="app"></main>
-</div>
 <nav id="nav" class="glass" aria-label="Sezioni">
   <button data-v="home" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Oggi</span></button>
   <button data-v="train"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h3l2-6 4 12 2-6h5"/></svg><span>Esercitati</span></button>
@@ -190,7 +186,6 @@ table.t td.n,table.t th.n{text-align:right;font-variant-numeric:tabular-nums}
   <button data-v="hist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19h16"/><path d="M7 16v-4"/><path d="M12 16V7"/><path d="M17 16v-7"/></svg><span>Storico</span></button>
 </nav>
 <div class="toast" id="toast" role="status" hidden></div>
-</div>
 
 <script>
 /* ---------- Dati: prove ufficiali SSM (2024, 2025, 2026) ---------- */
@@ -275,8 +270,7 @@ const store={_t:null,
 };
 /* ---------- Utilità ---------- */
 const $=s=>document.querySelector(s);
-const SC=()=>$("#scroller");
-const top0=()=>{SC().scrollTop=0};
+const top0=()=>window.scrollTo(0,0);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const all=()=>OFF.concat(CUSTOM,PREF.extra?EXTRA:[]);
 const everything=()=>OFF.concat(CUSTOM,EXTRA);
