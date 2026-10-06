@@ -1,0 +1,15 @@
+{
+  "name": "Allenatore SSM",
+  "short_name": "SSM",
+  "description": "Prove ufficiali SSM 2024–2026 con ripasso degli errori",
+  "lang": "it",
+  "start_url": "/Allenatore-SSM/",
+  "scope": "/Allenatore-SSM/",
+  "display": "standalone",
+  "background_color": "#eef3f1",
+  "theme_color": "#0e7a64",
+  "icons": [
+    {"src": "/Allenatore-SSM/icon-180.png", "sizes": "180x180", "type": "image/png"},
+    {"src": "/Allenatore-SSM/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
